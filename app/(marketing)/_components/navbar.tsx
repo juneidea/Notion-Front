@@ -29,15 +29,11 @@ export const Navbar = () => {
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const signinRef = useRef<HTMLDialogElement | null>(null);
 
-  let isMounted = false;
   useEffect(() => {
     const code = params.get("code");
-    console.log("code", code)
-    if (code && isMounted) {
-      console.log("oauth", code)
+    if (code) {
       oauth(code);
     }
-    isMounted = true;
   }, []);
 
   const handleAuth = async (
